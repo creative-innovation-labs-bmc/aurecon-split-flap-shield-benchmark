@@ -1,0 +1,1 @@
+(() => { const D=window.BenchData,R=window.BenchRuntime; window.WallBench={...D,root:R.root,register:r=>R.register(r)}; })();
