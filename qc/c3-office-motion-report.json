@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "checks": {
+    "textMovesAcrossFirstWindow": true,
+    "textMovesAcrossSecondWindow": true,
+    "officeTransitionDrains": true,
+    "centredSmallText": true,
+    "noErrors": true
+  },
+  "details": {
+    "before": {
+      "draws": 252,
+      "animatedCellDraws": 1893,
+      "textAnimatedCellDraws": 1031,
+      "macroAnimatedCellDraws": 862,
+      "watchdogRecoveries": 0,
+      "visibilityResumes": 0,
+      "maxQueued": 169,
+      "lastFrameAt": 9320.9,
+      "geom": {
+        "font": "700 34px \"Open Sans\"",
+        "ascent": 24,
+        "descent": 7,
+        "baseline": 53.5,
+        "visualCentre": 45
+      }
+    },
+    "mid1": {
+      "draws": 273,
+      "animatedCellDraws": 2005,
+      "textAnimatedCellDraws": 1143,
+      "macroAnimatedCellDraws": 862,
+      "watchdogRecoveries": 0,
+      "visibilityResumes": 0,
+      "maxQueued": 169,
+      "lastFrameAt": 10020.9
+    },
+    "mid2": {
+      "draws": 298,
+      "animatedCellDraws": 2169,
+      "textAnimatedCellDraws": 1307,
+      "macroAnimatedCellDraws": 862,
+      "watchdogRecoveries": 0,
+      "visibilityResumes": 0,
+      "maxQueued": 169,
+      "lastFrameAt": 10854.2
+    },
+    "after": {
+      "draws": 303,
+      "animatedCellDraws": 2173,
+      "textAnimatedCellDraws": 1311,
+      "macroAnimatedCellDraws": 862,
+      "watchdogRecoveries": 0,
+      "visibilityResumes": 0,
+      "maxQueued": 169,
+      "lastFrameAt": 11020.9,
+      "active": 0
+    },
+    "textFrames1": 112,
+    "textFrames2": 164,
+    "centreError": 0,
+    "errors": []
+  }
+}
