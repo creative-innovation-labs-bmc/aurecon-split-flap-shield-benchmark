@@ -1,0 +1,28 @@
+(() => {
+'use strict';
+const B=window.BenchData,R=window.BenchRuntime,C=window.CanvasBench,ctx=C.ctx,baseCtx=C.baseCtx;
+const state=Array.from({length:B.ROWS},()=>Array.from({length:B.COLS},()=>({char:' ',macro:false})));
+const anims=new Map(),interval=1000/(R.config.targetFps||30);
+let raf=0,wakeTimer=0,watchdog=0,lastDraw=0,lastFrame=performance.now(),colonTimer=0;
+const health={draws:0,animatedCellDraws:0,textAnimatedCellDraws:0,macroAnimatedCellDraws:0,watchdogRecoveries:0,visibilityResumes:0,maxQueued:0,lastFrameAt:lastFrame};
+function pixelRect(r,c){const x=B.cellX(c),y=B.cellY(r),px=Math.max(0,Math.floor(x*C.sx)),py=Math.max(0,Math.floor(y*C.sy));return[px,py,Math.min(C.canvas.width-px,Math.ceil(72*C.sx)+1),Math.min(C.canvas.height-py,Math.ceil(90*C.sy)+1)];}
+function restoreCell(r,c){const[x,y,w,h]=pixelRect(r,c);ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(C.base,x,y,w,h,x,y,w,h);ctx.restore();}
+function exposeBoard(r,c){ctx.fillStyle='#1C1B1C';ctx.fillRect(B.cellX(c),B.cellY(r),72,90);}
+function commitCell(r,c,value){state[r][c]={...value};C.drawStatic(baseCtx,B.cellX(c),B.cellY(r),state[r][c]);restoreCell(r,c);}
+function animateCell(r,c,a,p){const x=B.cellX(c),y=B.cellY(r);exposeBoard(r,c);if(p<.5){C.drawHalf(ctx,x,y,a.from,false);const s=Math.max(.001,1-p*2);ctx.save();ctx.beginPath();ctx.rect(x,y,72,45);ctx.clip();ctx.translate(x,y+45);ctx.scale(1,s);ctx.translate(-x,-y-45);C.drawHalf(ctx,x,y,a.from,true);ctx.restore();}else{C.drawHalf(ctx,x,y,a.to,true);const s=Math.max(.001,(p-.5)*2);ctx.save();ctx.beginPath();ctx.rect(x,y+45,72,45);ctx.clip();ctx.translate(x,y+45);ctx.scale(1,s);ctx.translate(-x,-y-45);C.drawHalf(ctx,x,y,a.to,false);ctx.restore();}ctx.fillStyle='#080808';ctx.fillRect(x,y+44,72,2);health.animatedCellDraws++;if(a.from.macro||a.to.macro)health.macroAnimatedCellDraws++;else health.textAnimatedCellDraws++;}
+function redrawOverlays(dim=false){C.drawDividers();C.drawColons(dim);}
+function drawInitial(){baseCtx.fillStyle='#373A36';baseCtx.fillRect(0,0,B.W,B.H);baseCtx.fillStyle='#1C1B1C';baseCtx.fillRect(30,66,3780,672);for(let r=0;r<B.ROWS;r++)for(let c=0;c<B.COLS;c++)C.drawStatic(baseCtx,B.cellX(c),B.cellY(r),state[r][c]);ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(C.base,0,0);ctx.restore();redrawOverlays(false);}
+function drawActive(t){let touched=false;for(const[key,a]of[...anims]){if(t<a.start)continue;const r=Math.floor(key/B.COLS),c=key%B.COLS,p=Math.min(1,(t-a.start)/Math.max(1,a.duration));if(p>=1){commitCell(r,c,a.to);anims.delete(key);}else animateCell(r,c,a,p);touched=true;}if(touched){redrawOverlays(false);health.draws++;}health.maxQueued=Math.max(health.maxQueued,anims.size);if(!anims.size)stopWatchdog();}
+function nextStatus(now){let due=false,nextStart=Infinity;for(const a of anims.values()){if(now>=a.start)due=true;else if(a.start<nextStart)nextStart=a.start;}return{due,nextStart};}
+function clearWake(){if(raf){cancelAnimationFrame(raf);raf=0;}if(wakeTimer){clearTimeout(wakeTimer);wakeTimer=0;}}
+function schedule(){if(document.hidden||raf||wakeTimer||!anims.size)return;const now=performance.now(),{due,nextStart}=nextStatus(now);if(due){const wait=Math.max(0,interval-(now-lastDraw));wakeTimer=setTimeout(()=>{wakeTimer=0;raf=requestAnimationFrame(frame);},Math.max(0,wait-2));}else if(Number.isFinite(nextStart))wakeTimer=setTimeout(()=>{wakeTimer=0;raf=requestAnimationFrame(frame);},Math.max(0,nextStart-now-2));}
+function frame(t){raf=0;lastFrame=t;health.lastFrameAt=t;if(t-lastDraw>=interval-2){drawActive(t);lastDraw=t;}schedule();}
+function ensureWatchdog(){if(watchdog)return;watchdog=setInterval(()=>{if(document.hidden||!anims.size)return;const now=performance.now(),{due}=nextStatus(now);if(due&&now-lastFrame>250){health.watchdogRecoveries++;clearWake();drawActive(now);lastDraw=now;lastFrame=now;health.lastFrameAt=now;schedule();}},250);}
+function stopWatchdog(){if(watchdog){clearInterval(watchdog);watchdog=0;}}
+function officeStagger(r,c,opt){const supplied=Number(opt.delay||0);if(supplied>0||!((c<8)||(c>=41))||![0,1,2,4,5,6].includes(r))return supplied;const right=c>=41,bottom=r>=4,card=!right?(bottom?1:0):(bottom?3:2),rowInCard=bottom?r-4:r,local=right?c-41:c;return card*420+rowInCard*105+local*28;}
+function setCell(r,c,next,opt={}){const key=r*B.COLS+c,existing=anims.get(key);if(existing&&existing.to.char===next.char&&existing.to.macro===next.macro)return;if(!existing&&state[r][c].char===next.char&&state[r][c].macro===next.macro)return;const now=performance.now();let from={...state[r][c]};if(existing&&now>=existing.start){const p=Math.min(1,(now-existing.start)/Math.max(1,existing.duration));from={...(p>=.5?existing.to:existing.from)};}const delay=officeStagger(r,c,opt);anims.set(key,{from,to:{char:next.char,macro:Boolean(next.macro)},start:now+delay,duration:Math.max(260,opt.duration||300)});health.maxQueued=Math.max(health.maxQueued,anims.size);ensureWatchdog();schedule();}
+function pulse(){if(colonTimer)clearTimeout(colonTimer);redrawOverlays(true);colonTimer=setTimeout(()=>{colonTimer=0;redrawOverlays(false);},150);}
+document.addEventListener('visibilitychange',()=>{if(document.hidden){clearWake();return;}health.visibilityResumes++;lastFrame=performance.now();schedule();});
+window.__canvasCHealth=health;
+R.register({init(){drawInitial();lastDraw=performance.now();lastFrame=lastDraw;},setCell,pulseColons:pulse,activeCount:()=>anims.size,canvas:C.canvas,health:()=>({...health,textGeometry:C.textGeometry,spriteCount:C.spriteCache?.size||0})});
+})();
