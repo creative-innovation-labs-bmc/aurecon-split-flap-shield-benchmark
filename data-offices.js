@@ -1,0 +1,7 @@
+(() => {
+'use strict';
+const B=window.BenchData=window.BenchData||{};
+B.OFFICES=[
+['ADELAIDE','AUS','Australia/Adelaide'],['BRISBANE','AUS','Australia/Brisbane'],['CAIRNS','AUS','Australia/Brisbane'],['CANBERRA','AUS','Australia/Sydney'],['DARWIN','AUS','Australia/Darwin'],['GLADSTON','AUS','Australia/Brisbane'],['GOLDCOST','AUS','Australia/Brisbane'],['MACKAY','AUS','Australia/Brisbane'],['MAROOCHY','AUS','Australia/Brisbane'],['NEWCASTL','AUS','Australia/Sydney'],['PERTH','AUS','Australia/Perth'],['SYDNEY','AUS','Australia/Sydney'],['TOOWOOMB','AUS','Australia/Brisbane'],['TOWNSVIL','AUS','Australia/Brisbane'],['BEIJING','CHN','Asia/Shanghai'],['SHANGHAI','CHN','Asia/Shanghai'],['HONGKONG','HKG','Asia/Hong_Kong'],['JAKARTA','IDN','Asia/Jakarta'],['MACAU','MAC','Asia/Macau'],['JOHOR','MYS','Asia/Kuala_Lumpur'],['PETALING','MYS','Asia/Kuala_Lumpur'],['AUCKLAND','NZL','Pacific/Auckland'],['CHRISTCH','NZL','Pacific/Auckland'],['HAMILTON','NZL','Pacific/Auckland'],['TAURANGA','NZL','Pacific/Auckland'],['WELLINGT','NZL','Pacific/Auckland'],['MANILA','PHL','Asia/Manila'],['SINGAPOR','SGP','Asia/Singapore'],['BANGKOK','THA','Asia/Bangkok'],['HOCHIMIN','VNM','Asia/Ho_Chi_Minh']
+].map((o,id)=>({display:o[0],country:o[1],tz:o[2],id}));
+})();
