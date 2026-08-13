@@ -1,0 +1,1 @@
+(() => { const c=document.createElement('canvas'); c.width=2560; c.height=536; document.getElementById('renderer-root').appendChild(c); })();
