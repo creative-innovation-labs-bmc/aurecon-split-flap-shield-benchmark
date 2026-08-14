@@ -11,8 +11,8 @@ function render(){
   const next=S.makeGrid(new Date());
   const rows=[];
   for(const row of [2,6]){
-    if(row===2&&age<3000)continue;
-    if(row===6&&age<7200)continue;
+    if(row===2&&age<3300)continue;
+    if(row===6&&age<7800)continue;
     rows.push(row);
     for(let c=0;c<B.SIDE_COLS;c++){renderer.setCell(row,c,next[row][c],{duration:260,officeClock:true});health.requestedCells++;}
     for(let c=B.COLS-B.SIDE_COLS;c<B.COLS;c++){renderer.setCell(row,c,next[row][c],{duration:260,officeClock:true});health.requestedCells++;}
