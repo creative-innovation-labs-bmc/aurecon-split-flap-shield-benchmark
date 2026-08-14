@@ -1,0 +1,188 @@
+{
+  "passed": true,
+  "checks": {
+    "initialAllColonProgressZero": true,
+    "initialMelbournePixelsHidden": true,
+    "initialSidePixelsHidden": true,
+    "stagedRevealBegins": true,
+    "laterGroupsRemainDelayed": true,
+    "finalAllColonProgressComplete": true,
+    "finalMelbournePixelsVisible": true,
+    "finalSidePixelsVisible": true,
+    "sideSecondsStillTick": true,
+    "queueDrains": true,
+    "noWatchdogRecovery": true,
+    "noErrors": true
+  },
+  "details": {
+    "initial": {
+      "state": {
+        "age": 568.9000000000015,
+        "melbourneFirst": 0,
+        "melbourneLast": 0,
+        "sideTopLeft": 0,
+        "sideTopRight": 0,
+        "sideBottomLeft": 0,
+        "sideBottomRight": 0
+      },
+      "pixels": {
+        "melbourne": 0,
+        "sideTopLeft": 0
+      },
+      "side": {
+        "ticks": 0,
+        "requestedCells": 0,
+        "lastTickMs": 0,
+        "lastRows": []
+      },
+      "canvas": {
+        "draws": 16,
+        "animatedCellDraws": 153,
+        "textAnimatedCellDraws": 153,
+        "macroAnimatedCellDraws": 0,
+        "watchdogRecoveries": 0,
+        "visibilityResumes": 0,
+        "maxQueued": 184,
+        "lastFrameAt": 625.6
+      },
+      "active": 175
+    },
+    "early": {
+      "state": {
+        "age": 3164.600000000006,
+        "melbourneFirst": 1,
+        "melbourneLast": 0,
+        "sideTopLeft": 1,
+        "sideTopRight": 0.05214340782892235,
+        "sideBottomLeft": 0,
+        "sideBottomRight": 0
+      },
+      "pixels": {
+        "melbourne": 105,
+        "sideTopLeft": 32
+      },
+      "side": {
+        "ticks": 0,
+        "requestedCells": 0,
+        "lastTickMs": 0,
+        "lastRows": []
+      },
+      "canvas": {
+        "draws": 94,
+        "animatedCellDraws": 814,
+        "textAnimatedCellDraws": 580,
+        "macroAnimatedCellDraws": 234,
+        "watchdogRecoveries": 0,
+        "visibilityResumes": 0,
+        "maxQueued": 184,
+        "lastFrameAt": 3225.4
+      },
+      "active": 99
+    },
+    "middle": {
+      "state": {
+        "age": 4471.5,
+        "melbourneFirst": 1,
+        "melbourneLast": 0,
+        "sideTopLeft": 1,
+        "sideTopRight": 1,
+        "sideBottomLeft": 0,
+        "sideBottomRight": 0
+      },
+      "pixels": {
+        "melbourne": 105,
+        "sideTopLeft": 32
+      },
+      "side": {
+        "ticks": 1,
+        "requestedCells": 16,
+        "lastTickMs": 1786747562012,
+        "lastRows": [
+          2
+        ]
+      },
+      "canvas": {
+        "draws": 130,
+        "animatedCellDraws": 1035,
+        "textAnimatedCellDraws": 617,
+        "macroAnimatedCellDraws": 418,
+        "watchdogRecoveries": 0,
+        "visibilityResumes": 0,
+        "maxQueued": 184,
+        "lastFrameAt": 4525.3
+      },
+      "active": 77
+    },
+    "final": {
+      "state": {
+        "age": 9255.800000000003,
+        "melbourneFirst": 1,
+        "melbourneLast": 1,
+        "sideTopLeft": 1,
+        "sideTopRight": 1,
+        "sideBottomLeft": 1,
+        "sideBottomRight": 1
+      },
+      "pixels": {
+        "melbourne": 105,
+        "sideTopLeft": 32
+      },
+      "side": {
+        "ticks": 6,
+        "requestedCells": 112,
+        "lastTickMs": 1786747567013,
+        "lastRows": [
+          2,
+          6
+        ]
+      },
+      "canvas": {
+        "draws": 243,
+        "animatedCellDraws": 2045,
+        "textAnimatedCellDraws": 1198,
+        "macroAnimatedCellDraws": 847,
+        "watchdogRecoveries": 0,
+        "visibilityResumes": 0,
+        "maxQueued": 184,
+        "lastFrameAt": 9041.8
+      },
+      "active": 0
+    },
+    "after": {
+      "state": {
+        "age": 10547.5,
+        "melbourneFirst": 1,
+        "melbourneLast": 1,
+        "sideTopLeft": 1,
+        "sideTopRight": 1,
+        "sideBottomLeft": 1,
+        "sideBottomRight": 1
+      },
+      "pixels": {
+        "melbourne": 105,
+        "sideTopLeft": 32
+      },
+      "side": {
+        "ticks": 7,
+        "requestedCells": 144,
+        "lastTickMs": 1786747568013,
+        "lastRows": [
+          2,
+          6
+        ]
+      },
+      "canvas": {
+        "draws": 251,
+        "animatedCellDraws": 2129,
+        "textAnimatedCellDraws": 1226,
+        "macroAnimatedCellDraws": 903,
+        "watchdogRecoveries": 0,
+        "visibilityResumes": 0,
+        "maxQueued": 184,
+        "lastFrameAt": 10041.9
+      },
+      "active": 0
+    },
+    "errors": []
+  }
+}
