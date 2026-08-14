@@ -1,5 +1,5 @@
 {
-  "passed": false,
+  "passed": true,
   "checks": {
     "hhmmssLeftTop": true,
     "hhmmssRightTop": true,
@@ -10,29 +10,29 @@
     "textAnimationAdvanced": true,
     "visibleSidePixelsMove": true,
     "smallTextCentred": true,
-    "queueDrains": false,
+    "queueDrains": true,
     "noErrors": true
   },
   "details": {
     "before": {
       "side": {
-        "ticks": 6,
-        "requestedCells": 112,
-        "lastTickMs": 1786709058013,
+        "ticks": 5,
+        "requestedCells": 96,
+        "lastTickMs": 1786709195012,
         "lastRows": [
           2,
           6
         ]
       },
       "canvas": {
-        "draws": 251,
-        "animatedCellDraws": 1957,
-        "textAnimatedCellDraws": 1164,
-        "macroAnimatedCellDraws": 793,
-        "watchdogRecoveries": 1,
+        "draws": 244,
+        "animatedCellDraws": 2002,
+        "textAnimatedCellDraws": 1206,
+        "macroAnimatedCellDraws": 796,
+        "watchdogRecoveries": 0,
         "visibilityResumes": 0,
-        "maxQueued": 183,
-        "lastFrameAt": 8790
+        "maxQueued": 181,
+        "lastFrameAt": 8217.4
       },
       "geom": {
         "font": "700 34px \"Open Sans\"",
@@ -43,41 +43,41 @@
       },
       "rows": [
         {
-          "left": "00 04 18",
-          "right": "20 04 18"
+          "left": "00 06 35",
+          "right": "22 06 35"
         },
         {
-          "left": "22 04 18",
-          "right": "22 04 18"
+          "left": "22 06 35",
+          "right": "20 06 35"
         }
       ]
     },
     "after": {
       "side": {
-        "ticks": 7,
-        "requestedCells": 144,
-        "lastTickMs": 1786709059012,
+        "ticks": 6,
+        "requestedCells": 128,
+        "lastTickMs": 1786709196013,
         "lastRows": [
           2,
           6
         ]
       },
       "canvas": {
-        "draws": 266,
-        "animatedCellDraws": 1984,
-        "textAnimatedCellDraws": 1177,
-        "macroAnimatedCellDraws": 807,
-        "watchdogRecoveries": 1,
+        "draws": 253,
+        "animatedCellDraws": 2061,
+        "textAnimatedCellDraws": 1234,
+        "macroAnimatedCellDraws": 827,
+        "watchdogRecoveries": 0,
         "visibilityResumes": 0,
-        "maxQueued": 183,
-        "lastFrameAt": 9523.3
+        "maxQueued": 181,
+        "lastFrameAt": 9200.7
       },
-      "active": 5
+      "active": 0
     },
     "hashes": {
-      "a": "78a162bf366410bf490d126a7ad5fd9be445ace597622be4ccfea002d687945e",
-      "b": "78a162bf366410bf490d126a7ad5fd9be445ace597622be4ccfea002d687945e",
-      "after": "2693914638d76c045613f615abbdae088a03a4c1173977fc61111d7ddc86ec49"
+      "a": "4ffb53e342e639a7fb7f4794e5671b35147b79bb691593a67e886f2041ffced3",
+      "b": "809ae72626e27795f7c296015818934dae2dca3b6ead6e5d016392dfdb6a3670",
+      "after": "c7daba4edbbb2a209041e9b3cb2ab7662f5e6151d54f0eb1504c5a53472d4015"
     },
     "errors": []
   }
