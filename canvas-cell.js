@@ -19,6 +19,10 @@ const FONT='700 34px "Open Sans"';
 const spriteCache=new Map();
 const geometryCache=new Map();
 
+function metricOr(value,fallback){
+  return Number.isFinite(value)?value:fallback;
+}
+
 function glyphGeometry(char){
   const glyph=String(char??' ').slice(0,1)||' ';
   if(geometryCache.has(glyph))return geometryCache.get(glyph);
@@ -27,8 +31,8 @@ function glyphGeometry(char){
   ctx.textBaseline='alphabetic';
   const metrics=ctx.measureText(glyph);
   ctx.restore();
-  const ascent=metrics.actualBoundingBoxAscent||25;
-  const descent=metrics.actualBoundingBoxDescent||7;
+  const ascent=metricOr(metrics.actualBoundingBoxAscent,25);
+  const descent=metricOr(metrics.actualBoundingBoxDescent,7);
   const baseline=45+(ascent-descent)/2;
   const geometry={char:glyph,font:FONT,ascent,descent,baseline,visualTop:baseline-ascent,visualBottom:baseline+descent,visualCentre:baseline-(ascent-descent)/2};
   geometryCache.set(glyph,geometry);
