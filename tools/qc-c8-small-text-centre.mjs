@@ -32,15 +32,15 @@ const result=await page.evaluate(()=>{
         minY=Math.min(minY,y);maxY=Math.max(maxY,y);minX=Math.min(minX,x);maxX=Math.max(maxX,x);count++;
       }
     }
-    const pixelCentre=(minY+maxY+1)/2;
+    const pixelCentre=(minY+maxY)/2;
     const hingeDevice=45*C.sy;
     return {char,minY,maxY,minX,maxX,count,pixelCentre,hingeDevice,errorDevicePx:pixelCentre-hingeDevice,errorLogicalPx:(pixelCentre-hingeDevice)/C.sy,geometry:C.glyphGeometry(char)};
   }
   return {E:scan(0,0,'E'),three:scan(0,1,'3'),sx:C.sx,sy:C.sy,textGeometry:C.textGeometry,errors:[]};
 });
 result.errors=errors;
-const toleranceLogical=0.8;
-const report={passed:false,checks:{EVisible:result.E.count>0,threeVisible:result.three.count>0,ECentred:Math.abs(result.E.errorLogicalPx)<=toleranceLogical,threeCentred:Math.abs(result.three.errorLogicalPx)<=toleranceLogical,usesPerGlyphRasterCentre:result.textGeometry.mode==='per-glyph-raster-centred',rasterCorrectionApplied:Math.abs(result.textGeometry.rasterCorrection-2.25)<0.001,noErrors:errors.length===0},details:result};
+const toleranceLogical=0.01;
+const report={passed:false,checks:{EVisible:result.E.count>0,threeVisible:result.three.count>0,ECentredOnHinge:Math.abs(result.E.errorLogicalPx)<=toleranceLogical,threeCentredOnHinge:Math.abs(result.three.errorLogicalPx)<=toleranceLogical,usesPerGlyphRasterCentre:result.textGeometry.mode==='per-glyph-raster-centred',rasterCorrectionApplied:Math.abs(result.textGeometry.rasterCorrection-2.25)<0.001,noErrors:errors.length===0},details:result};
 report.passed=Object.values(report.checks).every(Boolean);
 fs.mkdirSync('qc',{recursive:true});
 fs.writeFileSync('qc/c8-small-text-centre-report.json',JSON.stringify(report,null,2)+'\n');
