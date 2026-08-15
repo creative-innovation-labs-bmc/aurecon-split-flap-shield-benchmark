@@ -1,0 +1,184 @@
+{
+  "passed": true,
+  "checks": {
+    "mobileViewport": true,
+    "cssControlLoaded": true,
+    "zeroOverrideApplied": true,
+    "threeOverrideApplied": true,
+    "zeroEOnHinge": true,
+    "zeroThreeOnHinge": true,
+    "EActuallyMovesDown": true,
+    "threeActuallyMovesDown": true,
+    "noErrors": true
+  },
+  "details": {
+    "zero": {
+      "viewport": {
+        "width": 393,
+        "height": 852,
+        "dpr": 3
+      },
+      "cssValue": "0px",
+      "textGeometry": {
+        "font": "700 34px \"Open Sans\"",
+        "mode": "per-glyph-raster-centred+tunable-optical-y",
+        "hingeY": 45,
+        "rasterCorrection": 2.25,
+        "opticalOffset": 0,
+        "cssVariable": "--small-flap-text-y",
+        "queryParameter": "texty",
+        "E": {
+          "char": "E",
+          "font": "700 34px \"Open Sans\"",
+          "ascent": 23,
+          "descent": 0,
+          "metricBaseline": 56.5,
+          "baseline": 58.75,
+          "rasterCorrection": 2.25,
+          "opticalOffset": 0,
+          "targetHinge": 45
+        },
+        "three": {
+          "char": "3",
+          "font": "700 34px \"Open Sans\"",
+          "ascent": 23,
+          "descent": 1,
+          "metricBaseline": 56,
+          "baseline": 58.25,
+          "rasterCorrection": 2.25,
+          "opticalOffset": 0,
+          "targetHinge": 45
+        }
+      },
+      "E": {
+        "char": "E",
+        "minY": 22,
+        "maxY": 38,
+        "count": 71,
+        "pixelCentre": 30,
+        "hingeDevice": 30,
+        "errorDevicePx": 0,
+        "errorLogicalPx": 0,
+        "geometry": {
+          "char": "E",
+          "font": "700 34px \"Open Sans\"",
+          "ascent": 23,
+          "descent": 0,
+          "metricBaseline": 56.5,
+          "baseline": 58.75,
+          "rasterCorrection": 2.25,
+          "opticalOffset": 0,
+          "targetHinge": 45
+        }
+      },
+      "three": {
+        "char": "3",
+        "minY": 22,
+        "maxY": 38,
+        "count": 70,
+        "pixelCentre": 30,
+        "hingeDevice": 30,
+        "errorDevicePx": 0,
+        "errorLogicalPx": 0,
+        "geometry": {
+          "char": "3",
+          "font": "700 34px \"Open Sans\"",
+          "ascent": 23,
+          "descent": 1,
+          "metricBaseline": 56,
+          "baseline": 58.25,
+          "rasterCorrection": 2.25,
+          "opticalOffset": 0,
+          "targetHinge": 45
+        }
+      },
+      "errors": []
+    },
+    "down3": {
+      "viewport": {
+        "width": 393,
+        "height": 852,
+        "dpr": 3
+      },
+      "cssValue": "0px",
+      "textGeometry": {
+        "font": "700 34px \"Open Sans\"",
+        "mode": "per-glyph-raster-centred+tunable-optical-y",
+        "hingeY": 45,
+        "rasterCorrection": 2.25,
+        "opticalOffset": 3,
+        "cssVariable": "--small-flap-text-y",
+        "queryParameter": "texty",
+        "E": {
+          "char": "E",
+          "font": "700 34px \"Open Sans\"",
+          "ascent": 23,
+          "descent": 0,
+          "metricBaseline": 56.5,
+          "baseline": 61.75,
+          "rasterCorrection": 2.25,
+          "opticalOffset": 3,
+          "targetHinge": 45
+        },
+        "three": {
+          "char": "3",
+          "font": "700 34px \"Open Sans\"",
+          "ascent": 23,
+          "descent": 1,
+          "metricBaseline": 56,
+          "baseline": 61.25,
+          "rasterCorrection": 2.25,
+          "opticalOffset": 3,
+          "targetHinge": 45
+        }
+      },
+      "E": {
+        "char": "E",
+        "minY": 24,
+        "maxY": 40,
+        "count": 82,
+        "pixelCentre": 32,
+        "hingeDevice": 30,
+        "errorDevicePx": 2,
+        "errorLogicalPx": 3,
+        "geometry": {
+          "char": "E",
+          "font": "700 34px \"Open Sans\"",
+          "ascent": 23,
+          "descent": 0,
+          "metricBaseline": 56.5,
+          "baseline": 61.75,
+          "rasterCorrection": 2.25,
+          "opticalOffset": 3,
+          "targetHinge": 45
+        }
+      },
+      "three": {
+        "char": "3",
+        "minY": 24,
+        "maxY": 40,
+        "count": 75,
+        "pixelCentre": 32,
+        "hingeDevice": 30,
+        "errorDevicePx": 2,
+        "errorLogicalPx": 3,
+        "geometry": {
+          "char": "3",
+          "font": "700 34px \"Open Sans\"",
+          "ascent": 23,
+          "descent": 1,
+          "metricBaseline": 56,
+          "baseline": 61.25,
+          "rasterCorrection": 2.25,
+          "opticalOffset": 3,
+          "targetHinge": 45
+        }
+      },
+      "errors": []
+    },
+    "movementLogicalPx": {
+      "E": 3,
+      "three": 3
+    }
+  }
+}
