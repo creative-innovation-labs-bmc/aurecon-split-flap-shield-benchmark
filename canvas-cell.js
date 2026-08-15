@@ -17,6 +17,10 @@ if(!C.isC){
 
 const FONT='700 34px "Open Sans"';
 const RASTER_Y_CORRECTION=2.25;
+const cssTextY=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--small-flap-text-y'));
+const params=new URLSearchParams(location.search);
+const queryTextY=params.has('texty')?Number(params.get('texty')):NaN;
+const OPTICAL_TEXT_Y=Math.max(-10,Math.min(10,Number.isFinite(queryTextY)?queryTextY:(Number.isFinite(cssTextY)?cssTextY:0)));
 const spriteCache=new Map();
 const geometryCache=new Map();
 
@@ -35,14 +39,14 @@ function glyphGeometry(char){
   const ascent=metricOr(metrics.actualBoundingBoxAscent,25);
   const descent=metricOr(metrics.actualBoundingBoxDescent,7);
   const metricBaseline=45+(ascent-descent)/2;
-  const baseline=metricBaseline+RASTER_Y_CORRECTION;
-  const geometry={char:glyph,font:FONT,ascent,descent,metricBaseline,baseline,rasterCorrection:RASTER_Y_CORRECTION,targetHinge:45};
+  const baseline=metricBaseline+RASTER_Y_CORRECTION+OPTICAL_TEXT_Y;
+  const geometry={char:glyph,font:FONT,ascent,descent,metricBaseline,baseline,rasterCorrection:RASTER_Y_CORRECTION,opticalOffset:OPTICAL_TEXT_Y,targetHinge:45};
   geometryCache.set(glyph,geometry);
   return geometry;
 }
 
 C.glyphGeometry=glyphGeometry;
-C.textGeometry={font:FONT,mode:'per-glyph-raster-centred',hingeY:45,rasterCorrection:RASTER_Y_CORRECTION,E:glyphGeometry('E'),three:glyphGeometry('3')};
+C.textGeometry={font:FONT,mode:'per-glyph-raster-centred+tunable-optical-y',hingeY:45,rasterCorrection:RASTER_Y_CORRECTION,opticalOffset:OPTICAL_TEXT_Y,cssVariable:'--small-flap-text-y',queryParameter:'texty',E:glyphGeometry('E'),three:glyphGeometry('3')};
 
 function sprite(state,top){
   const char=String(state.char??' ').slice(0,1)||' ';
