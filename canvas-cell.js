@@ -16,6 +16,7 @@ if(!C.isC){
 }
 
 const FONT='700 34px "Open Sans"';
+const RASTER_Y_CORRECTION=2.25;
 const spriteCache=new Map();
 const geometryCache=new Map();
 
@@ -33,14 +34,15 @@ function glyphGeometry(char){
   ctx.restore();
   const ascent=metricOr(metrics.actualBoundingBoxAscent,25);
   const descent=metricOr(metrics.actualBoundingBoxDescent,7);
-  const baseline=45+(ascent-descent)/2;
-  const geometry={char:glyph,font:FONT,ascent,descent,baseline,visualTop:baseline-ascent,visualBottom:baseline+descent,visualCentre:baseline-(ascent-descent)/2};
+  const metricBaseline=45+(ascent-descent)/2;
+  const baseline=metricBaseline+RASTER_Y_CORRECTION;
+  const geometry={char:glyph,font:FONT,ascent,descent,metricBaseline,baseline,rasterCorrection:RASTER_Y_CORRECTION,targetHinge:45};
   geometryCache.set(glyph,geometry);
   return geometry;
 }
 
 C.glyphGeometry=glyphGeometry;
-C.textGeometry={font:FONT,mode:'per-glyph',hingeY:45,E:glyphGeometry('E'),three:glyphGeometry('3')};
+C.textGeometry={font:FONT,mode:'per-glyph-raster-centred',hingeY:45,rasterCorrection:RASTER_Y_CORRECTION,E:glyphGeometry('E'),three:glyphGeometry('3')};
 
 function sprite(state,top){
   const char=String(state.char??' ').slice(0,1)||' ';
