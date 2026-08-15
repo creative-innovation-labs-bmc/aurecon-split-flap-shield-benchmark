@@ -1,13 +1,12 @@
 {
-  "passed": false,
+  "passed": true,
   "checks": {
     "EVisible": true,
     "threeVisible": true,
-    "ECentred": true,
-    "threeCentred": true,
-    "metricsECentred": false,
-    "metricsThreeCentred": false,
-    "queueDrains": false,
+    "ECentredOnHinge": true,
+    "threeCentredOnHinge": true,
+    "usesPerGlyphRasterCentre": true,
+    "rasterCorrectionApplied": true,
     "noErrors": true
   },
   "details": {
@@ -18,10 +17,10 @@
       "minX": 21,
       "maxX": 28,
       "count": 71,
-      "pixelCentre": 30.5,
+      "pixelCentre": 30,
       "hingeDevice": 30,
-      "errorDevicePx": 0.5,
-      "errorLogicalPx": 0.75,
+      "errorDevicePx": 0,
+      "errorLogicalPx": 0,
       "geometry": {
         "char": "E",
         "font": "700 34px \"Open Sans\"",
@@ -40,10 +39,10 @@
       "minX": 19,
       "maxX": 29,
       "count": 70,
-      "pixelCentre": 30.5,
+      "pixelCentre": 30,
       "hingeDevice": 30,
-      "errorDevicePx": 0.5,
-      "errorLogicalPx": 0.75,
+      "errorDevicePx": 0,
+      "errorLogicalPx": 0,
       "geometry": {
         "char": "3",
         "font": "700 34px \"Open Sans\"",
@@ -83,7 +82,6 @@
         "targetHinge": 45
       }
     },
-    "active": 14,
     "errors": []
   }
 }
