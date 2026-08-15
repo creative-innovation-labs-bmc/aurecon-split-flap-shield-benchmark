@@ -1,0 +1,88 @@
+{
+  "passed": false,
+  "checks": {
+    "EVisible": true,
+    "threeVisible": true,
+    "ECentred": false,
+    "threeCentred": false,
+    "metricsECentred": true,
+    "metricsThreeCentred": true,
+    "queueDrains": true,
+    "noErrors": true
+  },
+  "details": {
+    "E": {
+      "char": "E",
+      "minY": 18,
+      "maxY": 34,
+      "minX": 21,
+      "maxX": 28,
+      "count": 82,
+      "pixelCentre": 26.5,
+      "hingeDevice": 30,
+      "errorDevicePx": -3.5,
+      "errorLogicalPx": -5.25,
+      "geometry": {
+        "char": "E",
+        "font": "700 34px \"Open Sans\"",
+        "ascent": 22,
+        "descent": 7,
+        "baseline": 52.5,
+        "visualTop": 30.5,
+        "visualBottom": 59.5,
+        "visualCentre": 45
+      }
+    },
+    "three": {
+      "char": "3",
+      "minY": 18,
+      "maxY": 34,
+      "minX": 19,
+      "maxX": 28,
+      "count": 74,
+      "pixelCentre": 26.5,
+      "hingeDevice": 30,
+      "errorDevicePx": -3.5,
+      "errorLogicalPx": -5.25,
+      "geometry": {
+        "char": "3",
+        "font": "700 34px \"Open Sans\"",
+        "ascent": 22,
+        "descent": 7,
+        "baseline": 52.5,
+        "visualTop": 30.5,
+        "visualBottom": 59.5,
+        "visualCentre": 45
+      }
+    },
+    "sx": 0.6666666666666666,
+    "sy": 0.6666666666666666,
+    "textGeometry": {
+      "font": "700 34px \"Open Sans\"",
+      "mode": "per-glyph",
+      "hingeY": 45,
+      "E": {
+        "char": "E",
+        "font": "700 34px \"Open Sans\"",
+        "ascent": 22,
+        "descent": 7,
+        "baseline": 52.5,
+        "visualTop": 30.5,
+        "visualBottom": 59.5,
+        "visualCentre": 45
+      },
+      "three": {
+        "char": "3",
+        "font": "700 34px \"Open Sans\"",
+        "ascent": 22,
+        "descent": 7,
+        "baseline": 52.5,
+        "visualTop": 30.5,
+        "visualBottom": 59.5,
+        "visualCentre": 45
+      }
+    },
+    "active": 0,
+    "errors": []
+  }
+}
