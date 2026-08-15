@@ -2,7 +2,7 @@
   /* Small split-flap Open Sans optical vertical position.
      Positive values move the small text DOWN.
      Negative values move the small text UP.
-     The production default is 0px. The Canvas renderer also applies its
-     internal raster centring correction before this optical adjustment. */
-  --small-flap-text-y: 0px;
+     Production default locked after phone optical QC. The Canvas renderer
+     applies its internal raster centring correction before this adjustment. */
+  --small-flap-text-y: -1.5px;
 }
