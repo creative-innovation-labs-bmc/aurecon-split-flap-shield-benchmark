@@ -3,86 +3,87 @@
   "checks": {
     "EVisible": true,
     "threeVisible": true,
-    "ECentred": false,
-    "threeCentred": false,
-    "metricsECentred": true,
-    "metricsThreeCentred": true,
+    "ECentred": true,
+    "threeCentred": true,
+    "metricsECentred": false,
+    "metricsThreeCentred": false,
     "queueDrains": false,
     "noErrors": true
   },
   "details": {
     "E": {
       "char": "E",
-      "minY": 20,
-      "maxY": 36,
+      "minY": 22,
+      "maxY": 38,
       "minX": 21,
       "maxX": 28,
-      "count": 76,
-      "pixelCentre": 28.5,
+      "count": 71,
+      "pixelCentre": 30.5,
       "hingeDevice": 30,
-      "errorDevicePx": -1.5,
-      "errorLogicalPx": -2.25,
+      "errorDevicePx": 0.5,
+      "errorLogicalPx": 0.75,
       "geometry": {
         "char": "E",
         "font": "700 34px \"Open Sans\"",
         "ascent": 22,
         "descent": 0,
-        "baseline": 56,
-        "visualTop": 34,
-        "visualBottom": 56,
-        "visualCentre": 45
+        "metricBaseline": 56,
+        "baseline": 58.25,
+        "rasterCorrection": 2.25,
+        "targetHinge": 45
       }
     },
     "three": {
       "char": "3",
-      "minY": 20,
-      "maxY": 36,
+      "minY": 22,
+      "maxY": 38,
       "minX": 19,
       "maxX": 29,
-      "count": 71,
-      "pixelCentre": 28.5,
+      "count": 70,
+      "pixelCentre": 30.5,
       "hingeDevice": 30,
-      "errorDevicePx": -1.5,
-      "errorLogicalPx": -2.25,
+      "errorDevicePx": 0.5,
+      "errorLogicalPx": 0.75,
       "geometry": {
         "char": "3",
         "font": "700 34px \"Open Sans\"",
         "ascent": 22,
         "descent": 0,
-        "baseline": 56,
-        "visualTop": 34,
-        "visualBottom": 56,
-        "visualCentre": 45
+        "metricBaseline": 56,
+        "baseline": 58.25,
+        "rasterCorrection": 2.25,
+        "targetHinge": 45
       }
     },
     "sx": 0.6666666666666666,
     "sy": 0.6666666666666666,
     "textGeometry": {
       "font": "700 34px \"Open Sans\"",
-      "mode": "per-glyph",
+      "mode": "per-glyph-raster-centred",
       "hingeY": 45,
+      "rasterCorrection": 2.25,
       "E": {
         "char": "E",
         "font": "700 34px \"Open Sans\"",
         "ascent": 22,
         "descent": 0,
-        "baseline": 56,
-        "visualTop": 34,
-        "visualBottom": 56,
-        "visualCentre": 45
+        "metricBaseline": 56,
+        "baseline": 58.25,
+        "rasterCorrection": 2.25,
+        "targetHinge": 45
       },
       "three": {
         "char": "3",
         "font": "700 34px \"Open Sans\"",
         "ascent": 22,
         "descent": 0,
-        "baseline": 56,
-        "visualTop": 34,
-        "visualBottom": 56,
-        "visualCentre": 45
+        "metricBaseline": 56,
+        "baseline": 58.25,
+        "rasterCorrection": 2.25,
+        "targetHinge": 45
       }
     },
-    "active": 13,
+    "active": 14,
     "errors": []
   }
 }
